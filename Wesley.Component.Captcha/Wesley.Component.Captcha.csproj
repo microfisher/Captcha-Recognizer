@@ -62,6 +62,18 @@
     <Compile Include="Strategies\YunDaMa\YunDaMa.cs" />
     <Compile Include="Strategies\YunDaMa\YunDaMaStrategy.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\CrackCaptchaAPI.dll" />
+    <Content Include="bin\Debug\FastVerCode.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Wesley.Component.Captcha.dll" />
+    <Content Include="bin\Debug\Wesley.Component.Captcha.pdb" />
+    <Content Include="bin\Debug\XinNuo.dll" />
+    <Content Include="bin\Debug\yundamaAPI.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
