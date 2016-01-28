@@ -17,11 +17,11 @@
 - 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
 - 联众打码 [http://www.jsdati.com ](http://www.jsdati.com "联众打码")
 
-### 运行图片	
+### 程序运行截图	
 
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
 
-### 示例代码
+### 控制台示例代码
 	static class Program
     {
         static void Main(string[] args)
@@ -55,4 +55,10 @@
         }
 	}
 	
+
+### 注意事项
+
+1.ThirdPartLibrary目录中是这几个平台的DLL接口类库，需要放置在Wesley.Component.Captcha的bin\debug目录下方可执行识别。
+
+2.其中的FastVerCode.dll是联众打码的接口类库，需要引用至项目中，其他DLL均不需要。
 
