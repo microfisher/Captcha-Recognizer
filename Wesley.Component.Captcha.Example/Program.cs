@@ -28,7 +28,7 @@ namespace Wesley.Component.Captcha.Example
             };
             decoder.OnCompleted += (s, e) =>
             {
-                Console.WriteLine("验证码（" + e.FilePath + "）识别完成：" + e.Code + "，耗时：" + (e.Milliseconds/1000) + "秒");
+                Console.WriteLine("验证码（" + e.FilePath + "）识别完成：" + e.Code + "，耗时：" + (e.Milliseconds/1000) + "秒，线程ID："+e.ThreadId);
             };
             decoder.OnError += (s, e) =>
             {

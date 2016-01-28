@@ -23,19 +23,9 @@ namespace Wesley.Component.Captcha
 
         public Decoder(Platform platform)
         {
-            try
-            {
-                var assembly = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(type => typeof(IStrategy).IsAssignableFrom(type) && !type.IsAbstract && type.FullName.ToLower().Contains(this._platform.ToString().ToLower()));
-                if (assembly == null) throw new Exception("获取此平台（" + this._platform + "）的策略失败！");
-                this._strategy = Activator.CreateInstance(assembly, this.Account) as IStrategy;
-                if (this._strategy == null) throw new Exception("实例化此平台（" + this._platform + "）的识别策略失败！");
-                this._platform = platform;
-            }
-            catch (Exception ex)
-            {
-                if (OnError != null) this.OnError(this, new OnErrorEventArgs(null, ex));
-            }
-
+            this._platform = platform;
+            var assembly = Assembly.GetExecutingAssembly().GetTypes().SingleOrDefault(type => typeof(IStrategy).IsAssignableFrom(type) && !type.IsAbstract && type.FullName.ToLower().Contains(this._platform.ToString().ToLower()));
+            if (assembly != null) this._strategy = Activator.CreateInstance(assembly, this.Account) as IStrategy;
         }
 
         public async Task Decode(string filePath)
@@ -46,9 +36,10 @@ namespace Wesley.Component.Captcha
                 try
                 {
                     var startTime = DateTime.Now;
+                    if (this._strategy == null) throw new Exception("不能实例化此平台（" + this._platform + "）的识别策略！");
                     var code = this._strategy.Recognize(filePath);
-                    var millisecond = DateTime.Now.Subtract(startTime).TotalMilliseconds;
                     var threadId = Thread.CurrentThread.ManagedThreadId;
+                    var millisecond = DateTime.Now.Subtract(startTime).TotalMilliseconds;
                     if (OnCompleted != null) this.OnCompleted(this, new OnCompletedEventArgs(code, millisecond, filePath, threadId));
                 }
                 catch (Exception ex)
