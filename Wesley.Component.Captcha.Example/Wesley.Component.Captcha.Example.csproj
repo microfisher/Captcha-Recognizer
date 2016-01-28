@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="bin\Debug\Wesley.Component.Captcha.Example.exe.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wesley.Component.Captcha\Wesley.Component.Captcha.csproj">
@@ -56,8 +55,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Wesley.Component.Captcha.Example.exe" />
-    <Content Include="bin\Debug\Wesley.Component.Captcha.Example.pdb" />
     <Content Include="Resources\checkcode1.png" />
     <Content Include="Resources\checkcode2.png" />
     <Content Include="Resources\checkcode3.png" />
