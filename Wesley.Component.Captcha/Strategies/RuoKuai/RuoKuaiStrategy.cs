@@ -8,22 +8,25 @@ namespace Wesley.Component.Captcha.Strategies.RuoKuai
 {
     public class RuoKuaiStrategy : IStrategy
     {
-        public Account Account { private get; set; } = new Account
-        {
-            SoftId = 0,
-            TypeId = 0,
-            SoftKey = null,
-            UserName = null,
-            Password = null
-        };
-
-        public RuoKuaiStrategy()
-        {
-        }
+        public Account Account { private get; set; } 
 
         public RuoKuaiStrategy(Account account)
         {
-            if(account!=null)this.Account = account;
+            if (account != null)
+            {
+                this.Account = account;
+            }
+            else
+            {
+                this.Account = new Account
+                {
+                    SoftId = 0,
+                    TypeId = 0,
+                    SoftKey = null,
+                    UserName = null,
+                    Password = null
+                };
+            }
         }
 
         public string Recognize(string filePath)

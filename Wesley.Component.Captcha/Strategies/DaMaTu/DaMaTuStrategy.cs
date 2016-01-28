@@ -6,21 +6,24 @@ namespace Wesley.Component.Captcha.Strategies.DaMaTu
     public class DaMaTuStrategy : IStrategy
     {
 
-        public Account Account { private get; set; } = new Account
-        {
-            TypeId = 0,
-            SoftKey = null,
-            UserName = null,
-            Password = null
-        };
-
-        public DaMaTuStrategy()
-        {
-        }
+        public Account Account { private get; set; }
 
         public DaMaTuStrategy(Account account)
         {
-            if (account != null) this.Account = account;
+            if (account != null)
+            {
+                this.Account = account;
+            }
+            else
+            {
+                this.Account = new Account
+                {
+                    TypeId = 0,
+                    SoftKey = null,
+                    UserName = null,
+                    Password = null
+                };
+            }
         }
 
         public string Recognize(string filePath)

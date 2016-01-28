@@ -6,20 +6,23 @@ namespace Wesley.Component.Captcha.Strategies.LianZhong
 {
     public class LianZhongStrategy : IStrategy
     {
-        public Account Account { private get; set; } = new Account
-        {
-            SoftKey = null,
-            UserName = null,
-            Password = null
-        };
-
-        public LianZhongStrategy()
-        {
-        }
+        public Account Account { private get; set; }
 
         public LianZhongStrategy(Account account)
         {
-            if (account != null) this.Account = account;
+            if (account != null)
+            {
+                this.Account = account;
+            }
+            else
+            {
+                this.Account = new Account
+                {
+                    SoftKey = null,
+                    UserName = null,
+                    Password = null
+                };
+            }
         }
 
         public string Recognize(string filePath)

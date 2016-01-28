@@ -12,20 +12,32 @@ namespace Wesley.Component.Captcha
 {
     public class Decoder : IDecoder
     {
-        public Account Account { get; set; }
 
         public event EventHandler<OnErrorEventArgs> OnError;
         public event EventHandler<OnStartedEventArgs> OnStart;
         public event EventHandler<OnCompletedEventArgs> OnCompleted;
 
+        private readonly Account _account;
         private readonly Platform _platform;
         private readonly IStrategy _strategy;
 
         public Decoder(Platform platform)
         {
             this._platform = platform;
+            this._strategy = InitializeStrategy();
+        }
+
+        public Decoder(Platform platform,Account account)
+        {
+            this._account = account;
+            this._platform = platform;
+            this._strategy = InitializeStrategy();
+        }
+
+        private IStrategy InitializeStrategy()
+        {
             var assembly = Assembly.GetExecutingAssembly().GetTypes().SingleOrDefault(type => typeof(IStrategy).IsAssignableFrom(type) && !type.IsAbstract && type.FullName.ToLower().Contains(this._platform.ToString().ToLower()));
-            if (assembly != null) this._strategy = Activator.CreateInstance(assembly, this.Account) as IStrategy;
+            return Activator.CreateInstance(assembly, this._account) as IStrategy;
         }
 
         public async Task Decode(string filePath)

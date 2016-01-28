@@ -11,17 +11,15 @@ namespace Wesley.Component.Captcha.Example
     {
         static void Main(string[] args)
         {
-            var decoder = new Decoder(Platform.RuoKuai);
-
             //若此处不设置Account，程序直接读取在策略代码中设置的默认值
-            //decoder.Account=new Account
-            //{
-            //    SoftId = 0, // 软件ID（此ID需要注册开发者账号才可获得）
-            //    TypeId = 0, // 验证码类型（四位字符或其他类型的验证码，根据各平台设置不同值）
-            //    SoftKey = "", //软件Key （此Key也需要注册开发者账号才可获得）
-            //    UserName = "", //账号（此账号为打码平台的普通用户账号，开发者账号不能进行图片识别）
-            //    Password = "" //密码
-            //};
+            var decoder = new Decoder(Platform.RuoKuai, new Account
+            {
+                SoftId = 0, // 软件ID（此ID需要注册开发者账号才可获得）
+                TypeId = 0, // 验证码类型（四位字符或其他类型的验证码，根据各平台设置不同值）
+                SoftKey = null, //软件Key （此Key也需要注册开发者账号才可获得）
+                UserName = null, //账号（此账号为打码平台的普通用户账号，开发者账号不能进行图片识别）
+                Password = null //密码
+            });
             decoder.OnStart += (s, e) =>
             {
                 Console.WriteLine("验证码（"+e.FilePath+"）识别启动……");

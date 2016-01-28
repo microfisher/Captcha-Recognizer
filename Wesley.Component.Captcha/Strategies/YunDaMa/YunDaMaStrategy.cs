@@ -6,22 +6,25 @@ namespace Wesley.Component.Captcha.Strategies.YunDaMa
 {
     public class YunDaMaStrategy : IStrategy
     {
-        public Account Account { private get; set; } = new Account
-        {
-            SoftId = 0,
-            TypeId = 0,
-            SoftKey = null,
-            UserName = null,
-            Password = null
-        };
-
-        public YunDaMaStrategy()
-        {
-        }
+        public Account Account { private get; set; }
 
         public YunDaMaStrategy(Account account)
         {
-            if (account != null) this.Account = account;
+            if (account != null)
+            {
+                this.Account = account;
+            }
+            else
+            {
+                this.Account = new Account
+                {
+                    SoftId = 0,
+                    TypeId = 0,
+                    SoftKey = null,
+                    UserName = null,
+                    Password = null
+                };
+            }
         }
 
         public string Recognize(string filePath)
