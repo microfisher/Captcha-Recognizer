@@ -63,13 +63,23 @@
     <Compile Include="Strategies\YunDaMa\YunDaMaStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\CrackCaptchaAPI.dll" />
-    <Content Include="bin\Debug\FastVerCode.dll" />
-    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\CrackCaptchaAPI.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\FastVerCode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Newtonsoft.Json.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\Wesley.Component.Captcha.dll" />
     <Content Include="bin\Debug\Wesley.Component.Captcha.pdb" />
-    <Content Include="bin\Debug\XinNuo.dll" />
-    <Content Include="bin\Debug\yundamaAPI.dll" />
+    <Content Include="bin\Debug\XinNuo.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\yundamaAPI.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
