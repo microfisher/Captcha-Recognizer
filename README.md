@@ -19,7 +19,7 @@
 
 ### 使用方法
 
-- 生成解决方案，；
+- 生成解决方案；
 - 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下；
 - 在项目Wesley.Component.Captcha中引用bin\debug目录下的FastVerCode.dll；
 - 运行Wesley.Component.Captcha.Example示例项目。
