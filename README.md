@@ -11,6 +11,12 @@
 - 反射方式获取识别策略;
 - 人工识别准确率高达99%，平均速度在2-6秒左右，经测试若快打码速度最快；
 
+### 第三方平台
+- 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
+- 云打码 [http://yundama.com ](http://yundama.com "云打码")
+- 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
+- 联众打码 [http://www.jsdati.com ](http://www.jsdati.com "联众打码")
+
 ### 运行图片	
 
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
