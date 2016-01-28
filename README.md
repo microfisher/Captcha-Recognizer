@@ -12,8 +12,7 @@
 
 
 ## 控制台示例代码
-
-   static class Program
+	static class Program
     {
         static void Main(string[] args)
         {
@@ -44,7 +43,7 @@
             }
             Console.ReadKey();
         }
-    }
+	}
 	
 	
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
