@@ -9,7 +9,7 @@
 - 支持异步方式多并发识别；
 - 识别完成后自动事件通知；
 - 反射方式获取识别策略;
-- 人工识别准确率高达99%，平均速度在2-6秒左右，经测试若快打码速度最快；
+- 人工识别准确率高达99%，平均速度在2-6秒左右，经测试，若快打码识别速度最快；
 
 
 ### 程序运行截图	
@@ -19,8 +19,10 @@
 
 ### 使用方法
 
-- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下，若无此文件夹请生成解决方案；
-- 运行Wesley.Component.Captcha.Example示例项目。
+- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下；
+- 若无bin\debug文件夹，请重新生成解决方案；
+- 运行Wesley.Component.Captcha.Example示例项目；
+- 去打码平台注册开发者账号及普通账号，获取相关信息后，设置到示例项目中；
 
 
 ### 示例代码
