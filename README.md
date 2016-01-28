@@ -58,7 +58,7 @@
 
 ### 注意事项
 
-1.ThirdPartLibrary目录下的DLL文件是平台的接口类库，需要放置在Wesley.Component.Captcha的bin\debug目录下方可执行识别。
+1.文件夹ThirdPartLibrary下的DLL文件是验证码识别平台的接口类库，需要放置在Wesley.Component.Captcha的bin\debug目录下方可执行识别。
 
 2.其中的FastVerCode.dll是联众打码的接口类库，需要引用至项目中；其他DLL均不需要引用，直接放置在bin\debug即可。
 
