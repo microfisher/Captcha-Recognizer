@@ -10,7 +10,7 @@ namespace Wesley.Component.Captcha
     {
         public int SoftId { get; set; } // 软件ID
 
-        public int TypeId { get; set; }// 验证码类型
+        public int TypeId { get; set; } // 验证码类型
 
         public string SoftKey { get; set; } //软件Key
 
