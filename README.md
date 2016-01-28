@@ -61,11 +61,15 @@
 
 ### 如何增加新的验证码平台？
 1.在Wesley.Component.Captcha项目里的Strategies文件夹中创建新平台的文件夹，名字随意，例如：YouYouYun；
+
 2.在YouYouYun文件夹中创建一个继承至IStrategy接口并且后缀为Strategy的策略类如：YouYouYunStrategy.cs；
+
 3.按照其他文件夹中策略类中的方式实现这个类；
+
 4.修改项目中的Platform.cs文件，增加新的枚举类型YouYouYun；
-5.程序自动实例化时将自动查找包含YouYouYun关键字的策略类并实例化，调用其验证码的识别方法；
-6.至此新的平台就添加成功了；
+
+5.程序自动实例化时将自动查找包含YouYouYun关键字的策略类并实例化，调用其验证码的识别方法，至此新的平台就添加成功了；
+
  
 
 ### 注意事项
