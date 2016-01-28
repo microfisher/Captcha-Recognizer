@@ -24,17 +24,17 @@ namespace Wesley.Component.Captcha
         public Decoder(Platform platform)
         {
             this._platform = platform;
-            this._strategy = InitializeStrategy();
+            this._strategy = GetStrategy();
         }
 
         public Decoder(Platform platform,Account account)
         {
             this._account = account;
             this._platform = platform;
-            this._strategy = InitializeStrategy();
+            this._strategy = GetStrategy();
         }
 
-        private IStrategy InitializeStrategy()
+        private IStrategy GetStrategy()
         {
             var assembly = Assembly.GetExecutingAssembly().GetTypes().SingleOrDefault(type => typeof(IStrategy).IsAssignableFrom(type) && !type.IsAbstract && type.FullName.ToLower().Contains(this._platform.ToString().ToLower()));
             return Activator.CreateInstance(assembly, this._account) as IStrategy;
