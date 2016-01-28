@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Threading;
 using Wesley.Component.Captcha.Events;
 using Wesley.Component.Captcha.Strategies.RuoKuai;
+using System.IO;
 
 namespace Wesley.Component.Captcha
 {
@@ -42,13 +43,14 @@ namespace Wesley.Component.Captcha
 
         public async Task Decode(string filePath)
         {
+            if (!File.Exists(filePath)) throw new Exception("验证码图片文件（" + filePath + "）不存在！");
+            if (this._strategy == null) throw new Exception("不能实例化此平台（" + this._platform + "）的识别策略！");
             if (OnStart != null) this.OnStart(this, new OnStartedEventArgs(filePath));
             await Task.Run(() =>
             {
                 try
                 {
                     var startTime = DateTime.Now;
-                    if (this._strategy == null) throw new Exception("不能实例化此平台（" + this._platform + "）的识别策略！");
                     var code = this._strategy.Recognize(filePath);
                     var threadId = Thread.CurrentThread.ManagedThreadId;
                     var millisecond = DateTime.Now.Subtract(startTime).TotalMilliseconds;
