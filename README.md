@@ -11,8 +11,11 @@
 - 反射方式获取识别策略;
 - 人工识别准确率高达99%，平均速度在2-6秒左右，经测试若快打码速度最快；
 
+### 运行图片	
 
-### 控制台示例代码
+![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
+
+### 示例代码
 	static class Program
     {
         static void Main(string[] args)
@@ -46,6 +49,4 @@
         }
 	}
 	
-### 代码运行图	
 
-![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
