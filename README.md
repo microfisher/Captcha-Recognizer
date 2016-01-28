@@ -1,8 +1,9 @@
-# Captcha-Recognizer
+# 验证码识别
+
 异步图形验证码识别程序（封装集成了若快、打码兔、联众、云打码等人工打码平台）采用策略设计模式
 
 
-## 主要特性
+### 主要特性
 
 - 采用策略设计模式分离各个打码平台；
 - 异步方式实现支持多并发识别；
@@ -11,7 +12,7 @@
 - 人工识别准确率高达99%，平均速度在2-6秒左右，经测试若快打码速度最快；
 
 
-## 控制台示例代码
+### 控制台示例代码
 	static class Program
     {
         static void Main(string[] args)
@@ -45,5 +46,6 @@
         }
 	}
 	
-	
+### 代码运行图	
+
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
