@@ -17,13 +17,6 @@
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
 
 
-### 第三方平台
-- 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
-- 云打码 [http://yundama.com ](http://yundama.com "云打码")
-- 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
-- 联众打码 [http://www.jsdati.com ](http://www.jsdati.com "联众打码")
-
-
 ### 控制台示例代码
 	static class Program
     {
@@ -59,16 +52,19 @@
 	}
 	
 
+### 当前集成的第三方平台
+- 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
+- 云打码 [http://yundama.com ](http://yundama.com "云打码")
+- 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
+- 联众打码 [http://www.jsdati.com ](http://www.jsdati.com "联众打码")
+
+
 ### 如何增加新的验证码平台？
 
 - 在Wesley.Component.Captcha项目里的Strategies文件夹中创建新平台的文件夹，名字随意，例如：YouYouYun；
-
 - 在YouYouYun文件夹中创建一个继承至IStrategy接口并且后缀为Strategy的策略类如：YouYouYunStrategy.cs；
-
 - 按照其他文件夹中策略类中的实现方式来实现这个类，如果第三方平台有DLL记得复制到bin\debug目录下去；
-
 - 修改项目中的Platform.cs文件，增加新的枚举类型YouYouYun；
-
 - 程序自动实例化时将自动查找包含YouYouYun关键字的策略类并实例化，调用其验证码的识别方法，至此新的平台就添加成功了；
 
  
