@@ -17,6 +17,13 @@
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
 
 
+### 使用方法
+
+- 将文件夹ThirdPartLibrary下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下；
+- 在Wesley.Component.Captcha项目中引用FastVerCode.dll；
+- 运行Wesley.Component.Captcha.Example示例项目。
+
+
 ### 示例代码
 	static class Program
     {
@@ -67,8 +74,5 @@
 - 修改项目中的Platform.cs文件，增加新的枚举类型YouYouYun；
 - 程序自动实例化时将自动查找包含YouYouYun关键字的策略类并实例化，调用其识别方法；
 
- 
-### 注意事项
 
-- 文件夹ThirdPartLibrary下的DLL是验证码平台的接口类库，需要放置在Wesley.Component.Captcha的bin\debug目录下方可执行验证码识别。其中的FastVerCode.dll是联众打码的接口类库，需要引用至项目中；其他DLL均不需要引用，直接放置在bin\debug即可。
 
