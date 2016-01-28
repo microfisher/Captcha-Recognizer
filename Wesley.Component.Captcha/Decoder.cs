@@ -15,16 +15,27 @@ namespace Wesley.Component.Captcha
         public Account Account { get; set; }
 
         public event EventHandler<OnErrorEventArgs> OnError;
-
         public event EventHandler<OnStartedEventArgs> OnStart;
-
         public event EventHandler<OnCompletedEventArgs> OnCompleted;
 
         private readonly Platform _platform;
+        private readonly IStrategy _strategy;
 
         public Decoder(Platform platform)
         {
-            this._platform = platform;
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(type => typeof(IStrategy).IsAssignableFrom(type) && !type.IsAbstract && type.FullName.ToLower().Contains(this._platform.ToString().ToLower()));
+                if (assembly == null) throw new Exception("获取此平台（" + this._platform + "）的策略失败！");
+                this._strategy = Activator.CreateInstance(assembly, this.Account) as IStrategy;
+                if (this._strategy == null) throw new Exception("实例化此平台（" + this._platform + "）的识别策略失败！");
+                this._platform = platform;
+            }
+            catch (Exception ex)
+            {
+                if (OnError != null) this.OnError(this, new OnErrorEventArgs(null, ex));
+            }
+
         }
 
         public async Task Decode(string filePath)
@@ -35,30 +46,16 @@ namespace Wesley.Component.Captcha
                 try
                 {
                     var startTime = DateTime.Now;
-
-                    var assembly = Assembly.GetExecutingAssembly().GetTypes().Where(type => typeof(IStrategy).IsAssignableFrom(type) && !type.IsAbstract).FirstOrDefault(m => m.FullName.ToLower().Contains(this._platform.ToString().ToLower()));
-
-                    if (assembly == null) throw new Exception("获取此平台（" + this._platform + "）的策略失败！");
-
-                    var strategy = Activator.CreateInstance(assembly,this.Account) as IStrategy;
-
-                    if (strategy == null) throw new Exception("实例化此平台（" + this._platform + "）的识别策略失败！");
-
-                    var code = strategy.Recognize(filePath);
-
+                    var code = this._strategy.Recognize(filePath);
                     var millisecond = DateTime.Now.Subtract(startTime).TotalMilliseconds;
-
                     var threadId = Thread.CurrentThread.ManagedThreadId;
-
                     if (OnCompleted != null) this.OnCompleted(this, new OnCompletedEventArgs(code, millisecond, filePath, threadId));
-
                 }
                 catch (Exception ex)
                 {
                     if (OnError != null) this.OnError(this, new OnErrorEventArgs(filePath, ex));
                 }
             });
-
         }
     }
 }
