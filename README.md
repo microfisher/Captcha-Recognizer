@@ -1,6 +1,6 @@
 # 验证码识别
 
-异步图形验证码识别程序（集成了若快、打码兔、联众、云打码等人工打码平台）
+异步图形验证码识别程序（集成了若快、打码兔、云打码等人工打码平台）
 
 
 ### 主要特性
@@ -19,9 +19,7 @@
 
 ### 使用方法
 
-- 生成解决方案；
-- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下；
-- 在项目Wesley.Component.Captcha中引用bin\debug目录下的FastVerCode.dll；
+- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下，若无此文件夹请生成解决方案；
 - 运行Wesley.Component.Captcha.Example示例项目。
 
 
@@ -60,14 +58,13 @@
 	}
 	
 
-### 第三方平台
+### 当前集成了哪些第三方平台？
 - 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
 - 云打码 [http://yundama.com ](http://yundama.com "云打码")
 - 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
-- 联众打码 [http://www.jsdati.com ](http://www.jsdati.com "联众打码")
 
 
-### 增加新的验证码平台？
+### 如何增加新的验证码平台？
 
 - 在项目里的Strategies文件夹中创建新平台的文件夹，名字随意例如：YouYouYun；
 - 在YouYouYun文件夹中创建一个继承至IStrategy接口并且后缀为Strategy的策略类如：YouYouYunStrategy.cs；
