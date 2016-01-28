@@ -43,24 +43,32 @@ namespace Wesley.Component.Captcha
 
         public async Task Decode(string filePath)
         {
-            if (!File.Exists(filePath)) throw new Exception("验证码图片文件（" + filePath + "）不存在！");
-            if (this._strategy == null) throw new Exception("不能实例化此平台（" + this._platform + "）的识别策略！");
-            if (OnStart != null) this.OnStart(this, new OnStartedEventArgs(filePath));
-            await Task.Run(() =>
+            try
             {
-                try
+                if (string.IsNullOrWhiteSpace(filePath)) throw new Exception("图片文件路径不能为空！");
+                if (!File.Exists(filePath)) throw new Exception("验证码图片文件（" + filePath + "）不存在！");
+                if (this._strategy == null) throw new Exception("不能实例化此平台（" + this._platform + "）的识别策略！");
+                if (OnStart != null) this.OnStart(this, new OnStartedEventArgs(filePath));
+                await Task.Run(() =>
                 {
-                    var startTime = DateTime.Now;
-                    var code = this._strategy.Recognize(filePath);
-                    var threadId = Thread.CurrentThread.ManagedThreadId;
-                    var millisecond = DateTime.Now.Subtract(startTime).TotalMilliseconds;
-                    if (OnCompleted != null) this.OnCompleted(this, new OnCompletedEventArgs(code, millisecond, filePath, threadId));
-                }
-                catch (Exception ex)
-                {
-                    if (OnError != null) this.OnError(this, new OnErrorEventArgs(filePath, ex));
-                }
-            });
+                    try
+                    {
+                        var startTime = DateTime.Now;
+                        var code = this._strategy.Recognize(filePath);
+                        var threadId = Thread.CurrentThread.ManagedThreadId;
+                        var millisecond = DateTime.Now.Subtract(startTime).TotalMilliseconds;
+                        if (OnCompleted != null) this.OnCompleted(this, new OnCompletedEventArgs(code, millisecond, filePath, threadId));
+                    }
+                    catch (Exception ex)
+                    {
+                        if (OnError != null) this.OnError(this, new OnErrorEventArgs(filePath, ex));
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                if (OnError != null) this.OnError(this, new OnErrorEventArgs(filePath, ex));
+            }
         }
     }
 }
