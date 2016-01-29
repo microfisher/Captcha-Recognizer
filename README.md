@@ -12,12 +12,12 @@
 - 人工识别准确率高达99%，平均速度在2-6秒左右，经过我们测试，若快打码识别速度最快；
 
 
-### 程序运行截图	
+### 运行截图	
 
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
 
 
-### 使用方法
+### 安装方法
 
 - 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha.Example项目下的bin\debug目录下；
 - 若该项目下没有bin\debug文件夹，请重新生成解决方案后再复制过去；
@@ -59,7 +59,7 @@
 	}
 	
 
-### 当前集成了哪些第三方平台？
+### 集成了哪些第三方平台？
 - 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
 - 优优云 [http://www.uuwise.com ](http://www.uuwise.com "优优云")
 - 云打码 [http://yundama.com ](http://yundama.com "云打码")
