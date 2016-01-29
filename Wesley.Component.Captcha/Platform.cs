@@ -17,6 +17,6 @@ namespace Wesley.Component.Captcha
 
         DaMaTu,//打码兔 http://www.dama2.com
 
-        LianZhong//联众打码 http://www.jsdati.com
+        YouYouYun//优优云 http://www.uuwise.com
     }
 }

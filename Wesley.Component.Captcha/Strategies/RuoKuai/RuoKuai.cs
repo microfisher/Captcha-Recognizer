@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Wesley.Component.Captcha.Strategies.RuoKuai
 {
-    public class RuoKuaiHttp
+    public class RuoKuai
     {
         #region Post With Pic
         /// <summary>
