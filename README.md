@@ -40,7 +40,8 @@
     {
         static void Main(string[] args)
         {
-            //若此处不设置Account，程序直接读取在策略代码中设置的默认值
+            //第一个参数是第三方平台
+            //第二个参数是平台账号信息，若此处不设置Account，则需要在策略代码中设置默认值
             var decoder = new Decoder(Platform.RuoKuai, new Account
             {
                 SoftId = 0, // 软件ID（此ID需要注册开发者账号才可获得）
