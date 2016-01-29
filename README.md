@@ -1,6 +1,6 @@
 # 验证码识别
 
-异步图形验证码识别程序（集成了若快、打码兔、联众、云打码等人工打码平台）
+异步图形验证码识别程序（集成了若快、优优云、打码兔、云打码等人工打码平台）
 
 
 ### 主要特性
@@ -9,7 +9,7 @@
 - 支持异步方式多并发识别；
 - 识别完成后自动事件通知；
 - 反射方式获取识别策略;
-- 人工识别准确率高达99%，平均速度在2-6秒左右，经测试若快打码速度最快；
+- 人工识别准确率高达99%，平均速度在2-6秒左右，经过我们测试，若快打码识别速度最快；
 
 
 ### 程序运行截图	
@@ -19,10 +19,9 @@
 
 ### 使用方法
 
-- 生成解决方案；
-- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下；
-- 在项目Wesley.Component.Captcha中引用bin\debug目录下的FastVerCode.dll；
-- 运行Wesley.Component.Captcha.Example示例项目。
+- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha.Example项目下的bin\debug目录下；
+- 若该项目下没有bin\debug文件夹，请重新生成解决方案后再复制过去；
+- 运行Wesley.Component.Captcha.Example示例项目；
 
 
 ### 示例代码
@@ -60,14 +59,13 @@
 	}
 	
 
-### 第三方平台
+### 当前集成了哪些第三方平台？
 - 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
 - 云打码 [http://yundama.com ](http://yundama.com "云打码")
 - 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
-- 联众打码 [http://www.jsdati.com ](http://www.jsdati.com "联众打码")
 
 
-### 增加新的验证码平台？
+### 如何增加新的验证码平台？
 
 - 在项目里的Strategies文件夹中创建新平台的文件夹，名字随意例如：YouYouYun；
 - 在YouYouYun文件夹中创建一个继承至IStrategy接口并且后缀为Strategy的策略类如：YouYouYunStrategy.cs；
