@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Wesley.Component.Captcha
 {
+    /// <summary>
+    /// 打码平台账户信息类
+    /// </summary>
     public class Account
     {
         public int SoftId { get; set; } // 软件ID

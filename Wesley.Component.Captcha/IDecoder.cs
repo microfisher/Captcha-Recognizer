@@ -7,6 +7,9 @@ using Wesley.Component.Captcha.Events;
 
 namespace Wesley.Component.Captcha
 {
+    /// <summary>
+    /// 验证码识别接口
+    /// </summary>
     public interface IDecoder
     {
         Task Decode(string filePath);

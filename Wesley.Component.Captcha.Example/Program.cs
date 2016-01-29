@@ -12,7 +12,7 @@ namespace Wesley.Component.Captcha.Example
         static void Main(string[] args)
         {
             //若此处不设置Account，程序直接读取在策略代码中设置的默认值
-            var decoder = new Decoder(Platform.YouYouYun, new Account
+            var decoder = new Decoder(Platform.RuoKuai, new Account
             {
                 SoftId = 0, // 软件ID（此ID需要注册开发者账号才可获得）
                 TypeId = 0, // 验证码类型（四位字符或其他类型的验证码，根据各平台设置不同值）

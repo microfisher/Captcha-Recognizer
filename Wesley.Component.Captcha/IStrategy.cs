@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Wesley.Component.Captcha
 {
+    /// <summary>
+    /// 验证码识别策略接口
+    /// </summary>
     public interface IStrategy
     {
         Account Account { set; }
