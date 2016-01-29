@@ -61,8 +61,10 @@
 
 ### 当前集成了哪些第三方平台？
 - 若快打码 [http://www.ruokuai.com ](http://www.ruokuai.com "若快打码")
+- 优优云 [http://www.uuwise.com ](http://www.uuwise.com "优优云")
 - 云打码 [http://yundama.com ](http://yundama.com "云打码")
 - 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
+
 
 
 ### 如何增加新的验证码平台？
