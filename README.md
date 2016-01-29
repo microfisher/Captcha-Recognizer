@@ -1,6 +1,6 @@
 # 验证码识别
 
-异步图形验证码识别程序（集成了若快、打码兔、云打码等人工打码平台）
+异步图形验证码识别程序（集成了若快、优优云、打码兔、云打码等人工打码平台）
 
 
 ### 主要特性
@@ -19,10 +19,9 @@
 
 ### 使用方法
 
-- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha的bin\debug目录下；
-- 若项目下没有bin\debug文件夹，请重新生成解决方案后再复制；
+- 将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha.Example项目下的bin\debug目录下；
+- 若该项目下没有bin\debug文件夹，请重新生成解决方案后再复制过去；
 - 运行Wesley.Component.Captcha.Example示例项目；
-- 去打码平台注册开发者账号及普通账号，获取相关信息后，设置到示例项目中；
 
 
 ### 示例代码
