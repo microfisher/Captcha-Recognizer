@@ -83,7 +83,7 @@
 
 ### 技术探讨
 
-QQ号:276679490
+- QQ号: 276679490
 
-微信：coldicelion
+- 微信：coldicelion
 
