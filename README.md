@@ -25,16 +25,6 @@
 - 打码兔 [http://www.dama2.com ](http://www.dama2.com "打码兔")
 
 
-### 安装方法
-
-- 首先肯定是要去上面这些平台中的一个注册下账号（开发者账号和普通账号都需要注册）；
-- 其次是将开发者账号中的软件ID、软件Key复制出来；
-- 然后登陆普通账号充值1~10元；
-- 接着将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha.Example项目下的bin\debug目录下；
-- 若该项目下没有bin\debug文件夹，请重新生成解决方案后再复制过去；
-- 最后运行Wesley.Component.Captcha.Example示例项目，按注释设置软件ID、软件Key、账号、密码、验证码类型就可以开始识别了；
-
-
 ### 示例代码
 	static class Program
     {
@@ -70,6 +60,16 @@
         }
 	}
 	
+
+
+### 安装方法
+
+- 首先肯定是要去上面这些平台中的一个注册下账号（开发者账号和普通账号都需要注册）；
+- 其次是将开发者账号中的软件ID、软件Key复制出来；
+- 然后登陆普通账号充值1~10元；
+- 接着将ThirdPartLibrary文件夹下的DLL类库复制到Wesley.Component.Captcha.Example项目下的bin\debug目录下；
+- 若该项目下没有bin\debug文件夹，请重新生成解决方案后再复制过去；
+- 最后运行Wesley.Component.Captcha.Example示例项目，按注释设置软件ID、软件Key、账号、密码、验证码类型就可以开始识别了；
 
 
 ### 如何增加新的验证码平台？
