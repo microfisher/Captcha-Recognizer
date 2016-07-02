@@ -31,7 +31,11 @@ namespace Wesley.Component.Captcha.Strategies.RuoKuai
 
             //wr.Credentials = System.Net.CredentialCache.DefaultCredentials;
             Stream rs = null;
-            rs = wr.GetRequestStream();
+            try
+            {
+                rs = wr.GetRequestStream();
+            }
+            catch { return "无法连接.请检查网络."; }
             string responseStr = null;
 
             string formdataTemplate = "Content-Disposition: form-data; name=\"{0}\"\r\n\r\n{1}";
@@ -56,18 +60,30 @@ namespace Wesley.Component.Captcha.Strategies.RuoKuai
             rs.Close();
 
             WebResponse wresp = null;
-            wresp = wr.GetResponse();
-
-            Stream stream2 = wresp.GetResponseStream();
-            StreamReader reader2 = new StreamReader(stream2);
-            responseStr = reader2.ReadToEnd();
-            if (wresp != null)
+            try
             {
-                wresp.Close();
-                wresp = null;
+                wresp = wr.GetResponse();
+
+                Stream stream2 = wresp.GetResponseStream();
+                StreamReader reader2 = new StreamReader(stream2);
+                responseStr = reader2.ReadToEnd();
+
             }
-            wr.Abort();
-            wr = null;
+            catch
+            {
+                //throw;
+            }
+            finally
+            {
+                if (wresp != null)
+                {
+                    wresp.Close();
+                    wresp = null;
+                }
+                wr.Abort();
+                wr = null;
+
+            }
             return responseStr;
         }
         #endregion
