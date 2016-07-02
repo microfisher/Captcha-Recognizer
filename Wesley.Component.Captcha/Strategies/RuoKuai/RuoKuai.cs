@@ -31,11 +31,7 @@ namespace Wesley.Component.Captcha.Strategies.RuoKuai
 
             //wr.Credentials = System.Net.CredentialCache.DefaultCredentials;
             Stream rs = null;
-            try
-            {
-                rs = wr.GetRequestStream();
-            }
-            catch { return "无法连接.请检查网络."; }
+            rs = wr.GetRequestStream();
             string responseStr = null;
 
             string formdataTemplate = "Content-Disposition: form-data; name=\"{0}\"\r\n\r\n{1}";
@@ -60,106 +56,22 @@ namespace Wesley.Component.Captcha.Strategies.RuoKuai
             rs.Close();
 
             WebResponse wresp = null;
-            try
-            {
-                wresp = wr.GetResponse();
+            wresp = wr.GetResponse();
 
-                Stream stream2 = wresp.GetResponseStream();
-                StreamReader reader2 = new StreamReader(stream2);
-                responseStr = reader2.ReadToEnd();
-
-            }
-            catch
+            Stream stream2 = wresp.GetResponseStream();
+            StreamReader reader2 = new StreamReader(stream2);
+            responseStr = reader2.ReadToEnd();
+            if (wresp != null)
             {
-                //throw;
+                wresp.Close();
+                wresp = null;
             }
-            finally
-            {
-                if (wresp != null)
-                {
-                    wresp.Close();
-                    wresp = null;
-                }
-                wr.Abort();
-                wr = null;
-
-            }
+            wr.Abort();
+            wr = null;
             return responseStr;
         }
         #endregion
 
-        #region Post
-        public static string Post(string url, Dictionary<object, object> param)
-        {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.UserAgent = "RK_C# 1.1";
-            //request.Timeout = 30000;
 
-            #region POST方法
-
-            //如果需要POST数据  
-            if (!(param == null || param.Count == 0))
-            {
-                StringBuilder buffer = new StringBuilder();
-                int i = 0;
-                foreach (string key in param.Keys)
-                {
-                    if (i > 0)
-                    {
-                        buffer.AppendFormat("&{0}={1}", key, param[key]);
-                    }
-                    else
-                    {
-                        buffer.AppendFormat("{0}={1}", key, param[key]);
-                    }
-                    i++;
-                }
-
-                byte[] data = System.Text.Encoding.UTF8.GetBytes(buffer.ToString());
-                try
-                {
-                    using (Stream stream = request.GetRequestStream())
-                    {
-                        stream.Write(data, 0, data.Length);
-                    }
-                }
-                catch
-                {
-                    return "无法连接.请检查网络.";
-                }
-
-            }
-
-            #endregion
-
-            WebResponse response = null;
-            string responseStr = string.Empty;
-            try
-            {
-                response = request.GetResponse();
-
-                if (response != null)
-                {
-                    StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-                    responseStr = reader.ReadToEnd();
-                    reader.Close();
-                }
-            }
-            catch (Exception)
-            {
-                //throw;
-            }
-            finally
-            {
-                request = null;
-                response = null;
-            }
-
-            return responseStr;
-
-        }
-        #endregion
     }
 }
