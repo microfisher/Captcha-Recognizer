@@ -14,6 +14,8 @@
 
 ### 运行截图	
 
+![验证码示例](https://github.com/coldicelion/Captcha-Recognizer/blob/master/Wesley.Component.Captcha.Example/Resources/example.png?raw=true)
+
 ![控制台运行示例](https://github.com/coldicelion/Captcha-Recognizer/raw/master/Wesley.Component.Captcha.Example/Resources/running.jpg?raw=true)
 
 
