@@ -59,6 +59,7 @@
     <Content Include="Resources\checkcode2.png" />
     <Content Include="Resources\checkcode3.png" />
     <Content Include="Resources\running.jpg" />
+    <Content Include="Resources\验证码.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
